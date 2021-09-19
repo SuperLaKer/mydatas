@@ -1,0 +1,189 @@
+{
+  "steps": [
+    {
+      "join_optimization": {
+        "select#": 1,
+        "steps": [
+          {
+            "condition_processing": {
+              "condition": "WHERE",
+              "原来的条件": "(`goods`.`id` in (13563,4864,25425,1587852,2452,1645374,788793,1345468,1897637,1120453))",
+              "steps": [
+                {
+                  "转型": "equality_propagation_等值传递",
+                  "resulting_condition": "(`goods`.`id` in (13563,4864,25425,1587852,2452,1645374,788793,1345468,1897637,1120453))"
+                },
+                {
+                  "transformation": "constant_propagation_常量传递",
+                  "resulting_condition": "(`goods`.`id` in (13563,4864,25425,1587852,2452,1645374,788793,1345468,1897637,1120453))"
+                },
+                {
+                  "transformation": "trivial_condition_removal_琐碎的条件去除",
+                  "resulting_condition": "(`goods`.`id` in (13563,4864,25425,1587852,2452,1645374,788793,1345468,1897637,1120453))"
+                }
+              ]
+            }
+          },
+          {
+            "substitute_generated_columns": {
+            }
+          },
+          {
+            "table_dependencies": [
+              {
+                "table": "`goods`",
+                "row_may_be_null": false,
+                "map_bit": 0,
+                "depends_on_map_bits": [
+                ]
+              }
+            ]
+          },
+          {
+            "ref_optimizer_key_uses": [
+            ]
+          },
+          {
+            "rows_estimation": [
+              {
+                "table": "`goods`",
+                "range_analysis": {
+                  "table_scan": {
+                    "rows": 1986596,
+                    "cost": 407927
+                  },
+                  "potential_range_indexes": [
+                    {
+                      "index": "PRIMARY",
+                      "usable": true,
+                      "key_parts": [
+                        "id"
+                      ]
+                    },
+                    {
+                      "index": "idx_name_num_time",
+                      "usable": false,
+                      "cause": "not_applicable"
+                    }
+                  ],
+                  "setup_range_conditions": [
+                  ],
+                  "group_index_range": {
+                    "chosen": false,
+                    "cause": "not_group_by_or_distinct"
+                  },
+                  "analyzing_range_alternatives": {
+                    "range_scan_alternatives": [
+                      {
+                        "index": "PRIMARY",
+                        "ranges": [
+                          "2452 <= id <= 2452",
+                          "4864 <= id <= 4864",
+                          "13563 <= id <= 13563",
+                          "25425 <= id <= 25425",
+                          "788793 <= id <= 788793",
+                          "1120453 <= id <= 1120453",
+                          "1345468 <= id <= 1345468",
+                          "1587852 <= id <= 1587852",
+                          "1645374 <= id <= 1645374",
+                          "1897637 <= id <= 1897637"
+                        ],
+                        "index_dives_for_eq_ranges": true,
+                        "rowid_ordered": true,
+                        "using_mrr": false,
+                        "index_only": false,
+                        "rows": 10,
+                        "cost": 12.025,
+                        "chosen": true
+                      }
+                    ],
+                    "analyzing_roworder_intersect": {
+                      "usable": false,
+                      "cause": "too_few_roworder_scans"
+                    }
+                  },
+                  "chosen_range_access_summary": {
+                    "range_access_plan": {
+                      "type": "range_scan",
+                      "index": "PRIMARY",
+                      "rows": 10,
+                      "ranges": [
+                        "2452 <= id <= 2452",
+                        "4864 <= id <= 4864",
+                        "13563 <= id <= 13563",
+                        "25425 <= id <= 25425",
+                        "788793 <= id <= 788793",
+                        "1120453 <= id <= 1120453",
+                        "1345468 <= id <= 1345468",
+                        "1587852 <= id <= 1587852",
+                        "1645374 <= id <= 1645374",
+                        "1897637 <= id <= 1897637"
+                      ]
+                    },
+                    "rows_for_plan": 10,
+                    "cost_for_plan": 12.025,
+                    "chosen": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "considered_execution_plans": [
+              {
+                "plan_prefix": [
+                ],
+                "table": "`goods`",
+                "best_access_path": {
+                  "considered_access_paths": [
+                    {
+                      "rows_to_scan": 10,
+                      "access_type": "range",
+                      "range_details": {
+                        "used_index": "PRIMARY"
+                      },
+                      "resulting_rows": 10,
+                      "cost": 14.025,
+                      "chosen": true
+                    }
+                  ]
+                },
+                "condition_filtering_pct": 100,
+                "rows_for_plan": 10,
+                "cost_for_plan": 14.025,
+                "chosen": true
+              }
+            ]
+          },
+          {
+            "attaching_conditions_to_tables": {
+              "original_condition": "(`goods`.`id` in (13563,4864,25425,1587852,2452,1645374,788793,1345468,1897637,1120453))",
+              "attached_conditions_computation": [
+              ],
+              "attached_conditions_summary": [
+                {
+                  "table": "`goods`",
+                  "attached": "(`goods`.`id` in (13563,4864,25425,1587852,2452,1645374,788793,1345468,1897637,1120453))"
+                }
+              ]
+            }
+          },
+          {
+            "refine_plan": [
+              {
+                "table": "`goods`"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "join_execution": {
+        "select#": 1,
+        "steps": [
+        ]
+      }
+    }
+  ]
+}

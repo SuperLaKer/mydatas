@@ -1,0 +1,11 @@
+# seata 服务分组，要与服务端nacos-config.txt中service.vgroup_mapping的后缀对应
+seata:
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      group : "SEATA_GROUP"
+      namespace: ""
+      dataId: "seataServer.properties"
+      username: "nacos"
+      password: "nacos"

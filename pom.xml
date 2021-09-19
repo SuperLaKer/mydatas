@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>mydata-mybatis</module>
+        <module>mydatas-sharding</module>
+        <module>mydatas-tx</module>
+        <module>seata-at-cloud-alibaba/at-consumer</module>
+        <module>seata-at-cloud-alibaba/at-producer</module>
+        <module>seata-jta/mydatas-jta</module>
+        <module>mydatas-sql</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.2</version>
+    </parent>
+
+    <groupId>my.datas</groupId>
+    <artifactId>mydatas</artifactId>
+    <version>v1</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <spring.datas.version>Neumann-SR9</spring.datas.version>
+        <!--provided、runtime、compile-->
+        <dependencies.scope>compile</dependencies.scope>
+
+        <!--spring-framework家族-->
+        <springframework.531.version>5.3.1</springframework.531.version>
+        <springframework.524.version>5.2.4</springframework.524.version>
+        <springcloud>2020.0.1</springcloud>
+        <springcloudAlibaba>2021.1</springcloudAlibaba>
+        <!--数据库连接-->
+        <mysql.version>8.0.22</mysql.version>
+        <!--mybatis家族: 注意内部版本-->
+        <mybatis.plus.starter.version>3.4.0</mybatis.plus.starter.version>
+        <sharding.version>5.0.0-beta</sharding.version>
+        <!--base环境包-->
+        <lang3.version>3.9</lang3.version>
+        <io.version>2.2</io.version>
+        <guava.version>30.1.1-jre</guava.version>
+        <lombok.version>1.18.12</lombok.version>
+        <fastjson.version>1.2.76</fastjson.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--项目专用依赖-->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-releasetrain</artifactId>
+                <version>${spring.datas.version}</version>
+            </dependency>
+
+            <!--数据库连接-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--mybatis家族-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.starter.version}</version>
+            </dependency>
+            <!--shardingsphere-->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core</artifactId>
+                <version>${sharding.version}</version>
+            </dependency>
+
+            <!--微服务-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${springcloud}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${springcloudAlibaba}</version>
+            </dependency>
+
+            <!--base环境包-->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${lang3.version}</version>
+                <scope>${dependencies.scope}</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+                <scope>${dependencies.scope}</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>${dependencies.scope}</scope>
+            </dependency>
+            <!--我的环境包-->
+            <dependency>
+                <groupId>aa.my</groupId>
+                <artifactId>slkenv</artifactId>
+                <version>v1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>${dependencies.scope}</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 常规打包，flat jar，打出来的jar很大，不易于修改部分文件后增量发布 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

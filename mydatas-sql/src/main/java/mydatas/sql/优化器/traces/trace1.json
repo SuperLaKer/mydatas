@@ -1,0 +1,95 @@
+{
+  "steps": [
+    {
+      "join_preparation": {
+        "select#": 1,
+        "steps": [
+          {
+            "expanded_query": "/* select#1 */ select `the_order`.`union_a` AS `union_a` from `the_order` limit 0,2"
+          }
+        ] /* steps */
+      } /* join_preparation */
+    },
+    {
+      "join_optimization": {
+        "select#": 1,
+        "steps": [
+          {
+            "table_dependencies": [
+              {
+                "table": "`the_order`",
+                "row_may_be_null": false,
+                "map_bit": 0,
+                "depends_on_map_bits": [
+                ] /* depends_on_map_bits */
+              }
+            ] /* table_dependencies */
+          },
+          /* 估计表访问成本 */
+          {
+            "rows_estimation": [
+              {
+                "table": "`the_order`",
+                "table_scan": {  /*全表扫描*/
+                  "rows": 198476, /*估计扫描行数*/
+                  "cost": 425  /*开销*/
+                } /* table_scan */
+              }
+            ] /* 行估计 */
+          },
+          {
+            "considered_execution_plans": [
+              {
+                "plan_prefix": [
+                ] /* plan_prefix */,
+                "table": "`the_order`",
+                "best_access_path": {
+                  "considered_access_paths": [  /*选择的访问路径*/
+                    {
+                      "rows_to_scan": 198476,
+                      "access_type": "scan",  /*访问类型全表扫描*/
+                      "resulting_rows": 198476,
+                      "cost": 20273,
+                      "chosen": true  /*确定选择*/
+                    }
+                  ] /* considered_access_paths */
+                } /* best_access_path */,
+                "condition_filtering_pct": 100,
+                "rows_for_plan": 198476,
+                "cost_for_plan": 20273,
+                "chosen": true
+              }
+            ] /* considered_execution_plans */
+          },
+          {
+            "attaching_conditions_to_tables": {
+              "original_condition": null,
+              "attached_conditions_computation": [
+              ] /* attached_conditions_computation */,
+              "attached_conditions_summary": [
+                {
+                  "table": "`the_order`",
+                  "attached": null
+                }
+              ] /* attached_conditions_summary */
+            } /* attaching_conditions_to_tables */
+          },
+          {
+            "refine_plan": [
+              {
+                "table": "`the_order`"
+              }
+            ] /* refine_plan */
+          }
+        ] /* steps */
+      } /* join_optimization */
+    },
+    {
+      "join_execution": {
+        "select#": 1,
+        "steps": [
+        ] /* steps */
+      } /* join_execution */
+    }
+  ] /* steps */
+}
