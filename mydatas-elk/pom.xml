@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mydatas-es</artifactId>
+    <artifactId>mydatas-elk</artifactId>
 
     <dependencies>
         <!--elasticSearch 7.9.3-->

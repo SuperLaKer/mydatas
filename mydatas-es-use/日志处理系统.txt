@@ -1,0 +1,23 @@
+一：将logback日志输出到LOGSTASH？
+    只需要一个文件即可：logback-spring.xml
+
+二：先将日志发送到kafka，logstash从kafka读取数据？
+    1. 原因：logstash可能顶不住
+    2. 系统比较小使用消息队列可以对消息先分类（可以用）
+
+    步骤一：基于docker的kafka配置：
+        kafka:
+            image: wurstmeister/kafka
+            ports:
+            ‐ "9092:9092"
+        environment:
+        KAFKA_ADVERTISED_HOST_NAME: 192.168.50.60 #宿主机ip
+        KAFKA_CREATE_TOPICS: "test:1:1" #主题:分区:副本数
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        volumes:
+            ‐ /var/run/docker.sock:/var/run/docker.sock
+
+    步骤二：修改logstash-springboot.conf
+        此配置文件在logstash的安装包中
+
+

@@ -12,10 +12,11 @@
         <module>seata-at-cloud-alibaba/at-producer</module>
         <module>seata-jta/mydatas-jta</module>
         <module>mydatas-sql</module>
-        <module>mydatas-es</module>
         <module>mydatas-redis</module>
         <module>mydatas-common</module>
         <module>mydatas-jpa</module>
+        <module>mydatas-elk</module>
+        <module>mydatas-es-use</module>
     </modules>
 
     <parent>
