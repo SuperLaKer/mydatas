@@ -1,0 +1,75 @@
+{
+  "version": 4,
+  "mapping_version": 1,
+  "settings_version": 1,
+  "aliases_version": 1,
+  "routing_num_shards": 1024,
+  "state": "open",
+  "settings": {
+    "index": {
+      "routing": {
+        "allocation": {
+          "include": {
+            "_tier_preference": "data_content"
+          }
+        }
+      },
+      "number_of_shards": "1",
+      "provided_name": "books",
+      "creation_date": "1616139268136",
+      "number_of_replicas": "1",
+      "uuid": "1JuA_lbqTjS_54z1Cnrvsw",
+      "version": {
+        "created": "7110299"
+      }
+    }
+  },
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "author": {
+          "analyzer": "ik_max_word",
+          "type": "text"
+        },
+        "price": {
+          "type": "double"
+        },
+        "name": {
+          "analyzer": "ik_max_word",
+          "type": "text"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "category": {
+          "type": "integer"
+        },
+        "sellReason": {
+          "analyzer": "ik_max_word",
+          "type": "text"
+        },
+        "sellTime": {
+          "format": "yyyy-MM-dd",
+          "type": "date"
+        },
+        "status": {
+          "type": "short"
+        }
+      }
+    }
+  },
+  "aliases": [],
+  "primary_terms": {
+    "0": 1
+  },
+  "in_sync_allocations": {
+    "0": [
+      "QFFmF5OsTQSogwvou0Uw2A"
+    ]
+  },
+  "rollover_info": {},
+  "system": false,
+  "timestamp_range": {
+    "unknown": true
+  }
+}

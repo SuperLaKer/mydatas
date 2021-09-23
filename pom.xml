@@ -12,12 +12,14 @@
         <module>seata-at-cloud-alibaba/at-producer</module>
         <module>seata-jta/mydatas-jta</module>
         <module>mydatas-sql</module>
+        <module>mydatas-es</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.2</version>
+        <!--springframework.version = 5.3.3-->
     </parent>
 
     <groupId>my.datas</groupId>
@@ -27,15 +29,22 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <spring.datas.version>Neumann-SR9</spring.datas.version>
         <!--provided、runtime、compile-->
         <dependencies.scope>compile</dependencies.scope>
 
-        <!--spring-framework家族-->
-        <springframework.531.version>5.3.1</springframework.531.version>
-        <springframework.524.version>5.2.4</springframework.524.version>
+        <!--spring家族-->
+        <!--
+            alibabaCloud(2021.1)    springCloud(2020.0.1)   springboot(2.4.2)  spring(5.3.3)
+            https://docs.spring.io/spring-data/elasticsearch/docs/4.2.5/reference/html/#preface.requirements
+            SpringDataReleaseTrain(2020.0)    spring Data(4.1.x)   es(7.9.3)  springboot(2.4.x)  spring(5.3.2)
+        -->
+        <spring.datas.version>2020.0</spring.datas.version>
         <springcloud>2020.0.1</springcloud>
         <springcloudAlibaba>2021.1</springcloudAlibaba>
+        <springboot.version>2.4.2</springboot.version>
+        <springframework.version>5.3.3</springframework.version>
+
+
         <!--数据库连接-->
         <mysql.version>8.0.22</mysql.version>
         <!--mybatis家族: 注意内部版本-->
@@ -52,10 +61,27 @@
     <dependencyManagement>
         <dependencies>
             <!--项目专用依赖-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.data</groupId>-->
+            <!--                <artifactId>spring-data-releasetrain</artifactId>-->
+            <!--                <version>${spring.datas.version}</version>-->
+            <!--            </dependency>-->
+
+            <!--微服务-->
             <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-releasetrain</artifactId>
-                <version>${spring.datas.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${springcloud}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${springcloudAlibaba}</version>
             </dependency>
 
             <!--数据库连接-->
@@ -77,22 +103,7 @@
                 <version>${sharding.version}</version>
             </dependency>
 
-            <!--微服务-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <type>pom</type>
-                <scope>import</scope>
-                <version>${springcloud}</version>
-            </dependency>
 
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <type>pom</type>
-                <scope>import</scope>
-                <version>${springcloudAlibaba}</version>
-            </dependency>
 
             <!--base环境包-->
             <dependency>
@@ -147,6 +158,7 @@
             <version>${lombok.version}</version>
             <scope>${dependencies.scope}</scope>
         </dependency>
+
     </dependencies>
 
     <build>

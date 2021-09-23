@@ -1,0 +1,29 @@
+### 测试ok
+GET http://localhost:8080/books/list?status=1
+
+### 测试ok
+GET http://localhost:8080/books/list?status=1&author=金庸
+
+### 根据索引id查询_测试ok
+GET http://localhost:8080/books/detail/FgUZS3kBTuH2htRslywA
+
+
+### 添加
+POST http://localhost:8080/books/add
+Content-Type: application/json
+
+{
+  "id": "9",
+  "name": "A Song of Ice and Fire",
+  "author": "乔治·R·R·马丁",
+  "category": "严肃奇幻小说",
+  "price": 249.0,
+  "sellReason": "《冰与火之歌》是现实生活的一面镜子，人性真实的写照",
+  "sellTime": "1996-01-01",
+  "status": 1
+}
+
+
+
+
+

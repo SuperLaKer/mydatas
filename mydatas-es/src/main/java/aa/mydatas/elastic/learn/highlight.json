@@ -1,0 +1,61 @@
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
+    "max_score": 2.7566605,
+    "hits": [
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "vPwOWnkByBoX-wWJgt1I",
+        "_score": 2.7566605,
+        "_source": {
+          "author": "乔治·R·R·马丁",
+          "price": 200,
+          "name": "冰与火之歌",
+          "book_id": 9,
+          "category": "史诗奇幻",
+          "sellReason": "热播电视剧《Game of Thrones》原著小说",
+          "sellTime": "1996-01-01",
+          "status": 1
+        },
+        "highlight": {
+          "name": [
+            "<tag>冰</tag><tag>与</tag><tag>火</tag>之歌"
+          ]
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "vfwOWnkByBoX-wWJgt1P",
+        "_score": 2.7566605,
+        "_source": {
+          "author": "乔治·R·R·马丁2",
+          "price": 200,
+          "name": "冰与火之歌",
+          "book_id": 10,
+          "category": "史诗奇幻",
+          "sellReason": "热播电视剧《权力的游戏》改编自冰与火之歌，马丁监制",
+          "sellTime": "1996-01-01",
+          "status": 0
+        },
+        "highlight": {
+          "name": [
+            "<tag>冰</tag><tag>与</tag><tag>火</tag>之歌"
+          ]
+        }
+      }
+    ]
+  }
+}

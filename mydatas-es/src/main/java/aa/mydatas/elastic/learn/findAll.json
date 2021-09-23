@@ -1,0 +1,163 @@
+{
+  "took": 5,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 9,
+      "relation": "eq"
+    },
+    "max_score": 1.0,
+    "hits": [
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "EwUZS3kBTuH2htRskCyy",
+        "_score": 1.0,
+        "_source": {
+          "author": "钱钟书",
+          "price": 29.5,
+          "name": "围城",
+          "id": 1,
+          "category": "中国当代小说",
+          "sellReason": "《围城》是钱钟书所著的长篇小说，被誉为\"新儒林外史\"",
+          "sellTime": "2021-05-08",
+          "status": 1
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "FAUZS3kBTuH2htRskizw",
+        "_score": 1.0,
+        "_source": {
+          "author": "金庸",
+          "price": 70.4,
+          "name": "倚天屠龙记",
+          "id": 2,
+          "category": "武侠小说",
+          "sellReason": "武林至尊，宝刀屠龙，号令天下，莫敢不从",
+          "sellTime": "2021-02-13",
+          "status": 1
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "FQUZS3kBTuH2htRslCz2",
+        "_score": 1.0,
+        "_source": {
+          "author": "金庸",
+          "price": 70,
+          "name": "神雕侠侣",
+          "id": 3,
+          "category": "武侠小说",
+          "sellReason": "风陵渡口初相遇，一见杨过误终身",
+          "sellTime": "2020-08-08",
+          "status": 1
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "FgUZS3kBTuH2htRslywA",
+        "_score": 1.0,
+        "_source": {
+          "author": "张爱玲",
+          "price": 216,
+          "name": "张爱玲全集",
+          "id": 4,
+          "category": "爱情小说",
+          "sellReason": "《倾城之恋》《琉璃瓦》《金锁记》《连环套》",
+          "sellTime": "2019-12-20",
+          "status": 1
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "FwUZS3kBTuH2htRsmSwU",
+        "_score": 1.0,
+        "_source": {
+          "author": "蕊希",
+          "price": 49.8,
+          "name": "重要习惯一个人",
+          "id": 5,
+          "category": "爱情小说",
+          "sellReason": "所有的煎熬和孤独，都成了我走向你的路。世界欠我一个你，是世界欠的，不是你",
+          "sellTime": "2019-01-17",
+          "status": 0
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "GAUZS3kBTuH2htRsmywJ",
+        "_score": 1.0,
+        "_source": {
+          "author": "张小娴",
+          "price": 28,
+          "name": "想念",
+          "id": 6,
+          "category": "中国当代随笔",
+          "sellReason": "当你偶尔抬起头，看到一只斑斓的蝴蝶翩翩起舞，是否会怀念",
+          "sellTime": "2019-01-07",
+          "status": 0
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "GQUZS3kBTuH2htRsnSwS",
+        "_score": 1.0,
+        "_source": {
+          "author": "陈忠实",
+          "price": 29.5,
+          "name": "白鹿原",
+          "id": 7,
+          "category": "中国当代小说",
+          "sellReason": "茅盾文学奖扛鼎之作",
+          "sellTime": "2021-04-17",
+          "status": 1
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "GgUZS3kBTuH2htRsnywY",
+        "_score": 1.0,
+        "_source": {
+          "author": "张爱玲",
+          "price": 20,
+          "name": "倾城之恋",
+          "id": 8,
+          "category": "中国当代小说",
+          "sellReason": "热播电视剧《倾城之恋》原著小说张爱玲作品授权正版",
+          "sellTime": "2020-10-10",
+          "status": 1
+        }
+      },
+      {
+        "_index": "books",
+        "_type": "_doc",
+        "_id": "9",
+        "_score": 1.0,
+        "_source": {
+          "author": "乔治·R·R·马丁",
+          "price": 249.0,
+          "name": "A Song of Ice and Fire",
+          "id": "9",
+          "category": "严肃奇幻小说",
+          "sellTime": "1996-01-01",
+          "sellReason": "《冰与火之歌》是现实生活的一面镜子，人性真实的写照",
+          "status": 0
+        }
+      }
+    ]
+  }
+}

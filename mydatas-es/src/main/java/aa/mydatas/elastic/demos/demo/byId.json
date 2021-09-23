@@ -1,0 +1,19 @@
+{
+  "_index": "books",
+  "_type": "_doc",
+  "_id": "O_mcSngB3V9Xt9l2oBfc",
+  "_version": 1,
+  "_seq_no": 1,
+  "_primary_term": 1,
+  "found": true,
+  "_source": {
+    "author": "钱钟书",
+    "price": 29.5,
+    "name": "倚天屠龙记",
+    "id": 1,
+    "category": "",
+    "sellReason": "《围城》是钱钟书所著的长篇小说，被誉为\"新儒林外史\"",
+    "sellTime": "2021-03-09",
+    "status": 1
+  }
+}
