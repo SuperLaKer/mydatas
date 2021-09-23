@@ -1,4 +1,4 @@
-package aa.mydatas.elastic.learn;
+package aa.mydatas.elastic.Alearn;
 
 import com.alibaba.fastjson.JSON;
 import org.elasticsearch.action.search.SearchRequest;

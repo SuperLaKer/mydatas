@@ -1,4 +1,4 @@
-package aa.mydatas.elastic.learn;
+package aa.mydatas.elastic.Alearn;
 
 /**
  * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html

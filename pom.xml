@@ -13,6 +13,7 @@
         <module>seata-jta/mydatas-jta</module>
         <module>mydatas-sql</module>
         <module>mydatas-es</module>
+        <module>mydatas-redis</module>
     </modules>
 
     <parent>

@@ -1,4 +1,4 @@
-package aa.mydatas.elastic.learn;
+package aa.mydatas.elastic.Alearn;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.get.GetRequest;
