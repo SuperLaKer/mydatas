@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="mysqlPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+        <description>说明</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!--<jta-data-source>JTA分布式事务</jta-data-source>-->
+
+        <properties>
+            <!-- 连接数据库的基本信息 -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/sfnotes?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.users" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="roottt"/>
+            <!-- ORM 框架的基本信息 -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -14,6 +14,8 @@
         <module>mydatas-sql</module>
         <module>mydatas-es</module>
         <module>mydatas-redis</module>
+        <module>mydatas-common</module>
+        <module>mydatas-jpa</module>
     </modules>
 
     <parent>

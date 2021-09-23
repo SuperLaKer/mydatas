@@ -1,0 +1,53 @@
+---------------------------XA刚性事务---------------------------
+---------------------------XA刚性事务---------------------------
+XA事务协议：
+    AP=application_many, APP通过XA协议向数据库发起请求
+    RMS=数据库预执行Undo/Redo日志，此时事务没有提交
+    TM=TransactionalManager, 实现一个TM服务。
+    TM接收RMS的prepare信息然后通知各个RMS调用提交或回滚
+    TM commit阶段不是原子的，某个commit可能会失败。需要手动设置补偿
+
+    XA协议的实现2PC，3PC
+    2PC:
+        prepare阶段：Undo/Redo日志，不提交会导致锁表，所以性能低下
+        Commit/cancel
+    3PC:
+        2PC改进版可用性更强
+    XA协议建议数据库隔离级别为"串行化"，连接是数据库越多性能越低
+
+sharding分布式XA事务：
+implementation 'org.apache.shardingsphere:sharding-transaction-xa-core:4.1.1'
+
+
+
+---------------------------saga柔性事务---------------------------
+---------------------------saga柔性事务---------------------------
+implementation 'org.apache.shardingsphere:sharding-transaction-base-core:4.1.1'
+saga事务：
+    主要是为了解决XA性能低下问题。
+    saga一次事务中每个RM可以直接提交，saga提供了两种补偿机制：失败的RM再次执行commit、成功的RM回滚
+    回滚补偿：insert --- delete, update之前记录了日志可以按照日志执行补偿和undo_log差不错（seata）
+
+    缺陷：无法解决对统一资源竞争的问题。t1->commit, t2->commit, t1->反向补偿。
+            t2的操作被淹没了，无法保证隔离性
+    决绝：生成逆向SQL，不能记录update之前的日志。（update account money+=xx, money-=xx）
+
+--sharding对saga的支持：
+旧版本支持，新版本的sharding不支持saga了，而且需要自己实现逆向SQL生成逻辑
+
+
+seata事务模型：
+    支持隔离性
+
+
+----------------------sharding-----------------
+base和XA只支持其中一种
+
+
+
+
+
+
+
+
+
